@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% block contenido %}
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Datepicker - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <style>
+    fieldset {
+      border: 0;
+    }
+    label {
+      display: block;
+      margin: 30px 0 0 0;
+    }
+    .overflow {
+      height: 200px;
+    }
+    </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+  $( function() {
+    $( "#speed" ).selectmenu();
+  } );
+  </script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker({
+    // Formato de la fecha
+    dateFormat: "dd/mm/yy",
+    // Primer dia de la semana El lunes
+    firstDay: 1,
+    // Dias Largo en castellano
+    dayNames: [ "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" ],
+    // Dias cortos en castellano
+    dayNamesMin: [ "Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa" ],
+    // Nombres largos de los meses en castellano
+    monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ],
+    // Nombres de los meses en formato corto
+    monthNamesShort: [ "Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dec" ],
+    // Cuando seleccionamos la fecha esta se pone en el campo Input
+    onSelect: function(dateText) {
+          $('#fecha').val(dateText);
+      }
+});
+  } );
+  </script>
+</head>
+
+
+<body>
+<div>
+    <h2>Reserva de Citas</h2>
+    <br>
+    <p>Seleccione el turno que desee atenderse y cambie el estado a "Reservado". Finalmente de click en "Guardar".</p>
+    <table class="table">
+        <tr>
+        <th>Fecha: <input type="text" id="datepicker"></th>
+        <th>Nº Historia: 0001 </th>
+        </tr>
+    </table>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Turno</th>
+        <th>Inicio</th>
+        <th>Fin</th>
+        <th>Estado</th>
+        <th>Motivo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>04:00PM</td>
+        <td>05:00PM</td>
+        <td>Disponible</td>
+          <td>
+         <select name="Motivo" id="Motivo">
+             <option>Seleccione</option>
+            <option>Consulta</option>
+            <option>Tratamiento</option>
+        </select>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>05:00PM</td>
+        <td>06:00PM</td>
+        <td>Disponible</td>
+          <td>
+         <select name="Motivo" id="Motivo">
+             <option>Seleccione</option>
+            <option>Consulta</option>
+            <option>Tratamiento</option>
+        </select>
+        </td>
+      </tr>
+      <tr>
+       <td>3</td>
+        <td>06:00PM</td>
+        <td>07:00PM</td>
+        <td>Disponible</td>
+          <td>
+         <select name="Motivo" id="Motivo">
+             <option>Seleccione</option>
+            <option>Consulta</option>
+            <option>Tratamiento</option>
+        </select>
+        </td>
+      </tr>
+	  <tr>
+       <td>4</td>
+        <td>07:00PM</td>
+        <td>08:00PM</td>
+        <td>Disponible</td>
+          <td>
+         <select name="Motivo" id="Motivo">
+             <option>Seleccione</option>
+            <option>Consulta</option>
+            <option>Tratamiento</option>
+        </select>
+        </td>
+      </tr>
+	  <tr>
+       <td>5</td>
+        <td>08:00PM</td>
+        <td>09:00PM</td>
+        <td>Disponible</td>
+          <td>
+         <select name="Motivo" id="Motivo">
+             <option>Seleccione</option>
+            <option>Consulta</option>
+            <option>Tratamiento</option>
+        </select>
+        </td>
+      </tr>
+	  <tr>
+       <td>6</td>
+        <td>09:00PM</td>
+        <td>10:00PM</td>
+        <td>Disponible</td>
+          <td>
+         <select name="Motivo" id="Motivo">
+             <option>Seleccione</option>
+            <option>Consulta</option>
+            <option>Tratamiento</option>
+        </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div>
+<input type="submit" class="btn btn-info" value="Guardar">
+<input type="submit" class="btn btn-info" value="Cancelar">
+</div>
+<br>
+
+</body>
+
+{% endblock %}
