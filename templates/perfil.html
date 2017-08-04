@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+    <div class="container"  >
+    <h1>Edita tu perfil:</h1>
+    <br>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+     <table class="table">
+        {{ form.as_table }}
+
+        {% if request.user.perfil.avatar %}
+            Imagen: <img src="{{ request.user.perfil.avatar.url }}" width="100">
+            <br>
+        {% endif %}
+     </table>
+    <div>
+        <input type="submit" value="Guardar">
+      </div>
+    <br>
+    </form>
+    </div>
+{% endblock %}

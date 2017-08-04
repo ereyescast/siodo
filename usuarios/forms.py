@@ -1,8 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-from usuarios.models import Perfil
-
+from usuarios.models import Perfil, Cita
+from datetime import datetime
 
 class RegistroForm(UserCreationForm):
 
@@ -10,16 +10,19 @@ class RegistroForm(UserCreationForm):
         required=True
     )
 
+    documento_identidad = forms.CharField(
+        max_length=10,
+        required=True
+       )
+
     telefono = forms.CharField(
         max_length=9,
         required=True
     )
 
-    edad = forms.IntegerField(
-        min_value=18,
-        max_value=100,
-        required=True
-    )
+    fecha_nac = forms.DateField(widget=forms.SelectDateWidget(
+        years=range(1980, datetime.now().year + 1)
+    ))
 
     class Meta(UserCreationForm.Meta):
         fields = ('username', 'first_name', 'last_name',)
@@ -28,4 +31,11 @@ class RegistroForm(UserCreationForm):
 class PerfilForm(forms.ModelForm):
     class Meta:
         model = Perfil
-        fields = ('direccion', 'telefono', 'edad', 'avatar')
+        fields = ('direccion', 'telefono', 'fecha_nac', 'avatar','documento_identidad',)
+
+class CitaForm(forms.ModelForm):
+    num_historia = forms.CharField()
+
+    class Meta:
+        model = Cita
+        fields = ('num_historia',)
