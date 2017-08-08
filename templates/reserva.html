@@ -52,14 +52,15 @@
 {% csrf_token %}
 
 <body>
+
 <div>
     <h1>Reserva de Citas</h1>
     <br>
-    <p>Seleccione el turno que desee atenderse y cambie el estado a "Reservado". Finalmente de click en "Guardar".</p>
+    <p>Seleccione el turno que desee atenderse:</p>
     <table class="table">
         <tr>
         <th>Fecha: <input type="text" id="datepicker"></th>
-        <th>Nº Historia: {{ form.num_historia }} </th>
+        <th>Nº Historia: {{ reserva.historia.id }} </th>
         </tr>
     </table>
 

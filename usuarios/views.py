@@ -1,8 +1,8 @@
 from django.contrib.auth import views as auth_views, login
 from django.shortcuts import redirect
-from django.views.generic import FormView, UpdateView, TemplateView
+from django.views.generic import FormView, UpdateView, ListView
 
-from usuarios.forms import RegistroForm, PerfilForm, CitaForm
+from usuarios.forms import RegistroForm, PerfilForm
 from usuarios.models import Perfil, Cita
 
 
@@ -45,7 +45,13 @@ class PerfilView(UpdateView):
     def get_object(self, queryset=None):
         return self.request.user.perfil
 
-class CitaView(TemplateView):
+class ReservaView(ListView):
     template_name = 'reserva.html'
-    model = Cita
-    form_class = CitaForm
+    context_object_name = 'reserva'
+
+    def get_queryset(self):
+
+        resultado = Cita.id
+
+        print(resultado)
+        return resultado

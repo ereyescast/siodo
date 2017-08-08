@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-from usuarios.models import Perfil, Cita
+from usuarios.models import Perfil
 from datetime import datetime
 
 class RegistroForm(UserCreationForm):
@@ -33,9 +33,3 @@ class PerfilForm(forms.ModelForm):
         model = Perfil
         fields = ('direccion', 'telefono', 'fecha_nac', 'avatar','documento_identidad',)
 
-class CitaForm(forms.ModelForm):
-    num_historia = forms.CharField()
-
-    class Meta:
-        model = Cita
-        fields = ('num_historia',)
